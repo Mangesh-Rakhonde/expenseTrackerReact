@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import apiClient from '../apiClient';
 
 const RegisterScreen = () => {
   const [name, setName] = useState('');
@@ -9,16 +10,29 @@ const RegisterScreen = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const user={name,email,password};
+    try{
+      apiClient.post('/api/users/register',user);
+    }
+    catch(err){
+      console.error('Failed to register',err);
+      // Display error message to user or handle accordingly
+      // For example, display error message below the form inputs or show a global error message
+      return;  // Prevent form from submitting and causing an error to be thrown again
+    }
+    
     // Registration API call
     // If success, navigate to login or dashboard
+    <h4>Registration successful.</h4>
     navigate('/login');
   };
 
   return (
-    <div>
+    <div className='container mt-5 pt-3 pb-3 border'>
       <h2>Register</h2>
       <form onSubmit={handleSubmit}>
       <input
+      className='form-control mt-3 mb-3'
           type="text"
           placeholder="Name"
           value={name}
@@ -26,6 +40,7 @@ const RegisterScreen = () => {
           required
         />
         <input
+        className='form-control mt-3 mb-3'
           type="email"
           placeholder="Email"
           value={email}
@@ -33,14 +48,16 @@ const RegisterScreen = () => {
           required
         />
         <input
+        className='form-control mt-3 mb-3'
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Register</button>
+        <button type="submit" className='btn btn-primary'>Register</button>
       </form>
+      <p className='mt-3'>Already have an account? <a href='/login'>Login</a></p>
     </div>
   );
 };

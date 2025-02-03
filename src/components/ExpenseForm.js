@@ -5,7 +5,7 @@ const ExpenseForm = () => {
   const {addExpense}=useContext(ExpenseContext)
   const [date, setDate] = useState('');
   const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('Food');
+  const [category, setCategory] = useState('Others');
   const [amount, setAmount] = useState('');
   
   const [note, setNote] = useState('');
@@ -31,6 +31,8 @@ const ExpenseForm = () => {
   };
 
   return (
+    <div className='container pt-3 pb-3 mb-3 border'>
+  
     <form onSubmit={handleSubmit}>
       <div className="mb-3 mt-3">
         <label className="form-label">Title</label>
@@ -57,11 +59,13 @@ const ExpenseForm = () => {
       <div className="mb-3 mt-3">
         <label className="form-label">Category</label>
         <select className="form-select" value={category} onChange={handleChange}>
-        <option value="">Select an option</option>
         <option value="Food">Food</option>
         <option value="Travel">Travel</option>
         <option value="Bills">Bills</option>
-        <option value="Other">Other</option>
+        <option value="EMI">EMI</option>
+        <option value="Rent">Rent</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Others">Others</option>
       </select>
       </div>
 
@@ -88,6 +92,7 @@ const ExpenseForm = () => {
       </div>
       <button type="submit" className="btn btn-primary">Add Expense</button>
     </form>
+    </div>
   );
 };
 

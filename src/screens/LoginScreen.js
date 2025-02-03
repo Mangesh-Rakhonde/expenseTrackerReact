@@ -21,25 +21,35 @@ const LoginScreen = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
+    <div className='container pt-5 pb-5 mt-5 border'>
+      <h3>Login</h3>
       <form onSubmit={handleSubmit}>
+      <div className="mb-3 mt-3">
+      <label className="form-label">Email</label>
         <input
+          className='form-control'
           type="email"
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+        </div>
+
+        <div className="mb-3 mt-3">
+        <label className="form-label">Password</label>
         <input
+        className='form-control'
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Login</button>
+        </div>
+        <button type="submit" className='btn btn-primary'>Login</button>
       </form>
+      <p className='mt-3'>Don't have an account? <a href='/register'>Register here</a></p>
     </div>
   );
 };

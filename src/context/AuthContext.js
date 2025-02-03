@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }) => {
     try{
       const response = await apiClient.post('/api/users/login', { email, password });
       const { token,user } = response.data;
-      console.log(token);  //logs
+        //logs
       Cookies.set('authToken', token, { expires: 7 });
       if(user){
         setUser(user);
@@ -34,15 +34,7 @@ export const AuthProvider = ({ children }) => {
       }
       else{
         return false;
-      }
-      
-      // if(user){
-      //   return true;
-      // }
-      // else{
-      //   return false;
-      // }
-      
+      }     
     
     }
     catch(error){
