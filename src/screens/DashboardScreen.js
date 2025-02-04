@@ -11,13 +11,14 @@ const DashboardScreen = () => {
       
       <ExpenseProvider>
         <h4>Expense Tracker</h4>
-      <ExpenseForm />
-      <div className='container pt-3 pb-3 border'>
-      <h4>List of expenses.</h4>
-      <span>Filter based on date: </span>
-      <input type="date" value={filDate} onChange={(e) => setFilDate(e.target.value)}/>
-      <ExpenseList filterDate={filDate} />
-      </div>
+        <ExpenseForm />
+        <div className='container pt-3 pb-3 border'>
+        <h4>List of expenses.</h4>
+        <span>Filter based on date: </span>
+        <input type="date" value={filDate} onChange={(e) => setFilDate(e.target.value)}/>
+        
+        <ExpenseList filterDate={filDate} />
+        </div>
      
       </ExpenseProvider>
      

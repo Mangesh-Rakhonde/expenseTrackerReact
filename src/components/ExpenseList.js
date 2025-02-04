@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect} from 'react';
 import { ExpenseContext } from '../context/ExpenseContext';
 import ExpenseItem from './ExpenseItem';
 
@@ -8,7 +8,7 @@ const ExpenseList = ({ filterDate }) => {
   
   useEffect(() => {
     fetchExpenses();
-    console.log("Expenses fetched", expenses);
+    
   }, [expensesUpdated]);
 
   if (loading) return <p>Loading...</p>;

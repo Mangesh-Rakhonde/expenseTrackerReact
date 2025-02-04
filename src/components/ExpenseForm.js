@@ -8,7 +8,7 @@ const ExpenseForm = () => {
   const [category, setCategory] = useState('Others');
   const [amount, setAmount] = useState('');
   
-  const [note, setNote] = useState('');
+
   const handleChange = (event) => {
     setCategory(event.target.value); // Update the selected value
   };
@@ -19,14 +19,14 @@ const ExpenseForm = () => {
       date,
       title,
       category,
-      amount,
-      note
+      amount
+      
     });
     
     setDate('');
     setTitle('');
     setCategory('');
-    setNote('');
+    
     setAmount('');
   };
 
@@ -80,16 +80,6 @@ const ExpenseForm = () => {
         />
       </div>
 
-      <div className="mb-3 mt-3">
-        <label className="form-label">Note</label>
-        <input 
-          className="form-control"
-          type="text"
-          value={note}
-          onChange={(e) => setNote(e.target.value)}
-        
-        />
-      </div>
       <button type="submit" className="btn btn-primary">Add Expense</button>
     </form>
     </div>

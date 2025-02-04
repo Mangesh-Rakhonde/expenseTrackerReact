@@ -1,23 +1,31 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes,Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import LoginScreen from './screens/LoginScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import DashboardScreen from './screens/DashboardScreen';
-import ExpenseScreen from './screens/ExpenseScreen';
 import ProtectedRoute from './components/ProtectedRoute';
 import { AuthProvider } from './context/AuthContext';
+import Home from './pages/Home';
+import About from './pages/About';
+import Layout from './components/Layout';
+import NoPage from './pages/NoPage';
+import Contact from './pages/Contact';
 
 const App = () => {
   return (
     <AuthProvider>
       <Router>
         <Routes>
-          {/* Redirect root to login */}
-          <Route path="/" element={<Navigate to="/login" />} />
-          <Route path="/login" element={<LoginScreen />} />
-          <Route path="/register" element={<RegisterScreen />} />
-          <Route path="/dashboard" element={<ProtectedRoute><DashboardScreen /></ProtectedRoute>} />
-          <Route path="/expenses" element={<ProtectedRoute><ExpenseScreen /></ProtectedRoute>} />
+          <Route path="/" element={<Layout />} >
+            <Route index element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/login" element={<LoginScreen />} />
+            <Route path="/register" element={<RegisterScreen />} />
+            <Route path="/dashboard" element={<ProtectedRoute><DashboardScreen /></ProtectedRoute>} />
+            <Route path="*" element={<NoPage />} />
+          </Route>
+          
         </Routes>
       </Router>
     </AuthProvider>

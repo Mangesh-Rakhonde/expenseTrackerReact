@@ -11,9 +11,8 @@ const LoginScreen = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const success = await login(email, password);
-    console.log({success});  //logs
     if (success) {
-      navigate('/dashboard'); // Redirect to dashboard if login is successful
+      navigate('/'); // Redirect to home if login is successful
     }
     else{
         console.log('something happen while login');
