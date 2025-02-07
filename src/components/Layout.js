@@ -21,9 +21,16 @@ const Layout = () => {
         <Link to="/contact" className="nav-link">Contact Us</Link>
       </li>
       {user&&(
-        <li className="nav-item">
-        <Link to="/dashboard" className="nav-link">User Dashboard</Link>
-      </li>
+        <>
+            <li className="nav-item">
+              <Link to="/dashboard" className="nav-link">User Dashboard</Link>
+            </li>
+
+           <li className="nav-item">
+            <Link to="/insights" className="nav-link">Insights</Link>
+            </li>
+        </>
+       
       )}
       
     </ul>

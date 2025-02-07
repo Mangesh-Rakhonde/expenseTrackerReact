@@ -28,8 +28,9 @@ const RegisterScreen = () => {
   };
 
   return (
-    <div className='container mt-5 pt-3 pb-3 border'>
-      <h2>Register</h2>
+    <div className="container d-flex justify-content-center align-items-center vh-100">
+      <div className="card p-4 shadow-lg" style={{ width: "500px" }}>
+        <h3 className="text-center">Register</h3>
       <form onSubmit={handleSubmit}>
       <input
       className='form-control mt-3 mb-3'
@@ -48,7 +49,7 @@ const RegisterScreen = () => {
           required
         />
         <input
-        className='form-control mt-3 mb-3'
+        className='form-control mt-3 mb-5'
           type="password"
           placeholder="Password"
           value={password}
@@ -59,6 +60,7 @@ const RegisterScreen = () => {
       </form>
       <p className='mt-3'>Already have an account? <a href='/login'>Login</a></p>
     </div>
+  </div>
   );
 };
 

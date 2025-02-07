@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
   return (
-    <div className="container mt-5 text-center">
+    <div className="container mt-5 mb-5 text-center">
       <h2 className="mb-3">💰 Welcome to Expense Tracker</h2>
       <p className="lead">
         Easily track your expenses, manage your budget, and gain financial insights.
